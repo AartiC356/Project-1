@@ -71,6 +71,7 @@ let quotes = [
     source: "Edward Tufte"
   }
 ];
+
 /***
  * `getRandomQuote` function creates a random number to return random quote object for the `quotes` array
 ***/
@@ -78,6 +79,7 @@ const getRandomQuote = () => {
   let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
   return quotes[randomNumber]
 };
+
 /***
  * `printQuote` function uses the `getRandomQuote` function to access the random quote objects, and creates html string to be displayed on the browser
 ***/
@@ -94,8 +96,10 @@ const printQuote = () => {
    if (randomQuote.year) {
     quoteString += `<span class="year"> ${randomQuote.year} </span></p>`
    };
-  return document.getElementById('quote-box').innerHTML = quoteString; 
+
+return document.getElementById('quote-box').innerHTML = quoteString; 
    };
+   
 /***
  * click event listener for the print quote button to refresh and generate random quote everytime
  * DO NOT CHANGE THE CODE BELOW!!
