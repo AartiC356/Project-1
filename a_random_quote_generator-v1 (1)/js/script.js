@@ -74,22 +74,32 @@ let quotes = [
 /***
  * `getRandomQuote` function
 ***/
-
-const getRandomQuote = (quotes) => {
+const getRandomQuote = () => {
   let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
   return quotes[randomNumber]
 };
-
-
 /***
  * `printQuote` function
 ***/
+const printQuote = () => {
 
-
+  let randomQuote = getRandomQuote();
+  let quoteString = `
+  <p class="quote"> ${randomQuote.quote} </p>
+  <p class="source"> ${randomQuote.source}; 
+   if (randomQuote.includes(citation)) {
+    <span class="citation"> ${randomQuote.citation} </span>
+   };
+   if (randomQuote.includes(year)) {
+   <span class="year"> ${randomQuote.year} </span>
+   };
+  </p>`;
+  return document.getElementById('quote-box').innerHTML = quoteString; 
+  };
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
