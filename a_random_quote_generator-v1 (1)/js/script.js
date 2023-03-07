@@ -39,7 +39,7 @@ let quotes = [
   {
     quote: "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
     source: "Bill Gates",
-    tags: "Humor, Programming, Motivation" 
+    tags: "Humor, Programming" 
     
   },
   {
@@ -55,7 +55,7 @@ let quotes = [
   {
     quote: "I have not failed. I’ve just found 10,000 ways that won’t work.",
     source: "Thomas Edison",
-    tags: "Motivation, Inspirational"
+    tags: "Motivation"
   },
   {
     quote: "Computers are good at following instructions, but not at reading your mind.",
@@ -81,11 +81,21 @@ let quotes = [
 ];
 
 /***
+ * `randomColor` function loads a new random background color for each quote 
+***/
+const randomNumber = () => Math.floor(Math.random() * 256) + 1; 
+
+function randomColor () {
+ let background = "rgb( randomNumber(), randomNumber(), randomNumber() )";
+ return background
+};
+
+/***
  * `getRandomQuote` function creates a random number to return random quote object for the `quotes` array
 ***/
-const getRandomQuote = () => {
+function getRandomQuote() {
   let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
-  return quotes[randomNumber]
+  return quotes[randomNumber];
 };
 
 /***
@@ -110,6 +120,9 @@ const printQuote = () => {
 
 return document.getElementById('quote-box').innerHTML = quoteString; 
    };
+
+
+
 
 /***
  * click event listener for the print quote button to refresh and generate random quote everytime
