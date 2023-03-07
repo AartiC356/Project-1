@@ -14,7 +14,8 @@ let quotes = [
   {
     quote: "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.",
     source: "Rick Cook",
-    citation: "The Wizardry Compiled"
+    citation: "The Wizardry Compiled",
+ 
   },
   {
     quote: "A son asked his father (a programmer) why the sun rises in the east, and sets in the west. His response? It works, don’t touch!",
@@ -32,11 +33,14 @@ let quotes = [
   },
   {
     quote: "Don't worry if it doesn't work right. If everything did, you'd be out of a job.",
-    source: "Mosher's Law of Software Engineering"
+    source: "Mosher's Law of Software Engineering",
+    tags: "Motivation, Inspirational"
   },
   {
     quote: "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
-    source: "Bill Gates"
+    source: "Bill Gates",
+    tags: "Humor, Programming, Motivation" 
+    
   },
   {
     quote: "Documentation is like sex: when it is good, it is very, very good and when it is bad, it is better than nothing.",
@@ -50,17 +54,20 @@ let quotes = [
   },
   {
     quote: "I have not failed. I’ve just found 10,000 ways that won’t work.",
-    source: "Thomas Edison"
+    source: "Thomas Edison",
+    tags: "Motivation, Inspirational"
   },
   {
     quote: "Computers are good at following instructions, but not at reading your mind.",
     source: "Donald Ervin Knuth",
     citation: "The texbook”, Addison-Wesley Professional",
-    year: "1984"
+    year: "1984",
+    tags: "Informative"
   },
   {
     quote: "One: Demonstrations always crash. And two: The probability of them crashing goes up exponentially with the number of people watching.",
-    source: "Steve Jobs"
+    source: "Steve Jobs",
+    tags: "Motivation, Humor" 
   },
   {
     quote: "“A user interface is like a joke. If you have to explain it, it’s not that good”..",
@@ -68,7 +75,8 @@ let quotes = [
   },
   {
     quote: 'There are only two industries that refer to their customers as "Users"',
-    source: "Edward Tufte"
+    source: "Edward Tufte",
+    tags: "Dark Humor" 
   }
 ];
 
@@ -94,12 +102,15 @@ const printQuote = () => {
     quoteString += `<span class="citation"> ${randomQuote.citation} </span>`
    };
    if (randomQuote.year) {
-    quoteString += `<span class="year"> ${randomQuote.year} </span></p>`
+    quoteString += `<span class="year"> ${randomQuote.year} </span>`
+   };
+   if (randomQuote.tags) {
+    quoteString += `<span class="tags"> ${randomQuote.tags} </span></p>`
    };
 
 return document.getElementById('quote-box').innerHTML = quoteString; 
    };
-   
+
 /***
  * click event listener for the print quote button to refresh and generate random quote everytime
  * DO NOT CHANGE THE CODE BELOW!!

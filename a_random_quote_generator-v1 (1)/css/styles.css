@@ -101,6 +101,15 @@ h1 {
   content: "—";
 }
 
+.tags {
+  font-size: 20px;
+  font-style: normal;
+}
+
+.tags:before {
+  content: " • ";
+}
+
 .citation {
   font-style: italic;
 }
