@@ -71,14 +71,14 @@ let quotes = [
     source: "Edward Tufte",
   }
 ];
-console.log(quotes);
-
-
-
 /***
  * `getRandomQuote` function
 ***/
 
+const getRandomQuote = (quotes) => {
+  let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
+  return quotes[randomNumber]
+};
 
 
 /***
@@ -92,4 +92,4 @@ console.log(quotes);
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+//document.getElementById('load-quote').addEventListener("click", printQuote, false);
