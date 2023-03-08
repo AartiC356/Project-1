@@ -121,7 +121,12 @@ return background;
 };
 
 /***
- * This line of code will produce a new background color with each click on `Show nother quote` button.
+ * `setInterval` function to auto update quotes after every 20 seconds
+***/
+setInterval(printQuote, 2000);
+
+/***
+ * This line of code will produce a new background color with each click on `Show another quote` button.
 ***/
 document.getElementById('load-quote').addEventListener("click", function onClick(event) {
   document.body.style.backgroundColor = randomColor()
