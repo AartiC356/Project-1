@@ -81,16 +81,6 @@ let quotes = [
 ];
 
 /***
- * `randomColor` function loads a new random background color for each quote 
-***/
-const randomNumber = () => Math.floor(Math.random() * 256) + 1; 
-
-function randomColor () {
- let background = "rgb( randomNumber(), randomNumber(), randomNumber() )";
- return background
-};
-
-/***
  * `getRandomQuote` function creates a random number to return random quote object for the `quotes` array
 ***/
 function getRandomQuote() {
@@ -102,7 +92,7 @@ function getRandomQuote() {
  * `printQuote` function uses the `getRandomQuote` function to access the random quote objects, and creates html string to be displayed on the browser
 ***/
 const printQuote = () => {
-
+  
   let randomQuote = getRandomQuote();
   let quoteString = 
   `<p class="quote"> ${randomQuote.quote} </p>
@@ -121,11 +111,28 @@ const printQuote = () => {
 return document.getElementById('quote-box').innerHTML = quoteString; 
    };
 
+/***
+ * `randomColor` function creates a random background color which will be used for each new quote object.
+***/
+function randomColor () {
+  const randomNumber = () => Math.floor(Math.random() * 256) +1; 
+  let background = `rgb( ${randomNumber()}, ${randomNumber()}, ${randomNumber()} )`;
+return background;
+};
 
-
+/***
+ * This line of code will produce a new background color with each click on `Show nother quote` button.
+***/
+document.getElementById('load-quote').addEventListener("click", function onClick(event) {
+  document.body.style.backgroundColor = randomColor()
+});
 
 /***
  * click event listener for the print quote button to refresh and generate random quote everytime
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+
+
+
