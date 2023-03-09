@@ -84,7 +84,7 @@ let quotes = [
  * `getRandomQuote` function creates a random number to return random quote object for the `quotes` array
 ***/
 function getRandomQuote() {
-  let randomNumber = Math.floor(Math.random() * quotes.length) + 1;
+  let randomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[randomNumber];
 };
 
@@ -98,17 +98,20 @@ const printQuote = () => {
   
   let randomQuote = getRandomQuote();
   let quoteString = 
-  `<p class="quote"> ${randomQuote["quote"]}</p>
-   <p class="source"> ${randomQuote.source}`;
+  /***
+ * Added `?.` to stop error-> `Uncaught TypeError: Cannot read properties of undefined (reading 'quote')`
+***/
+  `<p class="quote"> ${randomQuote?.['quote']}</p> 
+   <p class="source"> ${randomQuote?.['source']}`;
 
-   if (randomQuote.citation) {
-    quoteString += `<span class="citation"> ${randomQuote.citation} </span>`
+   if (randomQuote?.['citation']) {
+    quoteString += `<span class="citation"> ${randomQuote?.['citation']} </span>`
    };
-   if (randomQuote.year) {
-    quoteString += `<span class="year"> ${randomQuote.year} </span>`
+   if (randomQuote?.['year']) {
+    quoteString += `<span class="year"> ${randomQuote?.['year']} </span>`
    };
-   if (randomQuote.tags) {
-    quoteString += `<span class="tags"> ${randomQuote.tags} </span></p>`
+   if (randomQuote?.['tags']) {
+    quoteString += `<span class="tags"> ${randomQuote?.['tags']} </span></p>`
    };
    document.getElementById('quote-box').innerHTML = quoteString; 
    return setInterval(printQuote, 10000);  
